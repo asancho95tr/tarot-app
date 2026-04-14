@@ -15,15 +15,14 @@ import { POSITION_MEANINGS } from '../../data/tarot-card.data';
 export class TarotBoardComponent {
 
   cards = signal<DrawnCard[]>([]);
-  interpretation = computed(() => this.cards().map(drawn => {
+  interpretation = computed(() => this.cards().map((drawn, index) => {
     const c = drawn.card
     if(c.isMayor) {
       const mayorCard = c as TarotCard;
-      return mayorCard.reversed ? mayorCard.reversed_text : mayorCard.text;
+      return `<em><strong>${mayorCard.name}</strong></em>: ${mayorCard.reversed ? mayorCard.reversed_text : mayorCard.text}`;
     } else {
       const minorCard = c as MinorArcanaCard;
       const { position } = drawn;
-
       return `<strong>${POSITION_MEANINGS[position]}</strong>: ${minorCard.meaning}`;
     }
   }).join('<br/>'));

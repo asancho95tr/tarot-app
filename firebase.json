@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/tarot-app",
+    "public": "dist/tarot-app/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
