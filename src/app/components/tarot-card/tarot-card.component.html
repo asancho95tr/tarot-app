@@ -1,8 +1,8 @@
 @let c = mayorCard();
 <div class="card-container">
   <div class="card" [class.reversed]="c.reversed">
-    <img src="assets/cards/{{c.image}}" [alt]="c.name">
+    <img src="assets/cards/{{c.image}}" [alt]="c.name" [title]="c.name + (c.reversed ? ' (invertido)' : '')">
   </div>
-  <h3>{{ c.name }}</h3>
+  <h3>{{ c.name }} {{(c.reversed ? ' (invertido)' : '')}}</h3>
   <p class="meaning">{{ c.meaning }}</p>
 </div>

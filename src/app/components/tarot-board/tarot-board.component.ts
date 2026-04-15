@@ -16,10 +16,11 @@ export class TarotBoardComponent {
 
   cards = signal<DrawnCard[]>([]);
   interpretation = computed(() => this.cards().map((drawn, index) => {
+    const positionsByIndex = Object.keys(POSITION_MEANINGS);
     const c = drawn.card
     if(c.isMayor) {
       const mayorCard = c as TarotCard;
-      return `<em><strong>${mayorCard.name}</strong></em>: ${mayorCard.reversed ? mayorCard.reversed_text : mayorCard.text}`;
+      return `<strong>${POSITION_MEANINGS[positionsByIndex[index]]}</strong>: <em><strong>${mayorCard.name}</strong></em> - ${mayorCard.reversed ? mayorCard.reversed_text : mayorCard.text}`;
     } else {
       const minorCard = c as MinorArcanaCard;
       const { position } = drawn;

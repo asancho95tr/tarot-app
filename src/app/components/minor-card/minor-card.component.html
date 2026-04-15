@@ -1,6 +1,6 @@
 @let c = minorCard();
 <div class="card-container">
-    <div class="card {{ c.suit }}" [class.reversed]="c.reversed">
+    <div class="card {{ c.suit }}" [class.reversed]="c.reversed" [title]="c.label + (c.reversed ? ' (invertido)' : '')">
     <div class="value">{{ c.value }}</div>
     <div class="suit">{{ c.suit }}</div>
     </div>
